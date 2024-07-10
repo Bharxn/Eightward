@@ -1,0 +1,18 @@
+.sign-out-button {
+  background-color: rgb(131, 131, 131);
+  border-style: hidden;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 15px;
+  margin-top: 30px;
+  color: white;
+  font-weight: bold;
+}
+.sign-out-button:hover {
+  cursor: pointer;
+}
+
+.login-page {
+  margin-left: 20px;
+}
+

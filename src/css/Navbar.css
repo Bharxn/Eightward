@@ -1,0 +1,51 @@
+.logo {
+  max-height: 50px;
+  margin-top: 10px;
+}
+
+.login {
+  background-color: #3FA2F6;
+  border-radius: 0.5rem;
+}
+
+.navbar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  top: 0;
+  margin-bottom: 3rem;
+}
+
+.navbar ul {
+  display: flex;
+  font-weight: bold;
+  margin-top: auto;
+}
+
+.navbar ul li {
+  list-style: none;
+}
+
+.navbar ul li a {
+  display: block;
+  text-decoration: none;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  color: white;
+}
+
+.navbar ul li a:hover {
+  color: #DDE6ED;
+}
+
+.navbar ul .list a.active {
+  color: #3FA2F6;
+} 
+
+.profile-pic {
+  border-radius: 50%;
+  max-height: 35px;
+  margin-top: -6px;
+}
