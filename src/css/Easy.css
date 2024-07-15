@@ -1,0 +1,56 @@
+.poem {
+  background-color: black;
+  margin: 20px;
+  padding: 20px;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 25px;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.top-left {
+  display: flex;
+}
+
+.top-right {
+  display: flex;
+}
+
+.down {
+  display: flex;
+  justify-content: space-around;
+}
+
+.down-left {
+  display: flex;
+}
+
+.down-right {
+  display: flex;
+}
+
+.word {
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: rgb(51, 79, 79);
+}
+
+.line {
+  background-color: rgb(1, 231, 154);
+  min-width: 40px;
+  height: 5px;
+}
+
+.input-word {
+  all: unset;
+  text-align: center;
+  width: 70px;
+}

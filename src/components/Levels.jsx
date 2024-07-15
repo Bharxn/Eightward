@@ -1,6 +1,10 @@
+import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import { LevelsBar } from  "./"
+
 function Levels() {
   return(
-    <h1>Levels</h1>
+    <LevelsBar/>
   );
 }
 export default Levels;

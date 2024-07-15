@@ -1,6 +1,8 @@
 export { default as Navbar } from "./Navbar"
 export { default as Home } from "./Home"
 export { default as Levels } from "./Levels"
+export { default as LevelsBar } from "./LevelsBar"
+export { default as Easy } from "./Easy"
 export { default as Learn } from "./Learn"
 export { default as Online } from "./Online"
 export { default as Docs } from "./Docs"

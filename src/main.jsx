@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Navbar, Home, Levels, Learn, Online, Docs, Login } from './components'
+import { Navbar, Home, Levels, Learn, Online, Docs, Login, Easy } from './components'
 import './css/bundle.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -11,6 +11,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element = {<Home/>}/>
         <Route path="/levels" element = {<Levels/>}/>
+        <Route path="/levels/easy" element = {<Easy/>}/>
         <Route path="/learn" element = {<Learn/>}/>
         <Route path="/online" element = {<Online/>}/>
         <Route path="/docs" element = {<Docs/>}/>

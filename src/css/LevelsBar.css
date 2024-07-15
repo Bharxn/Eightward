@@ -1,0 +1,31 @@
+.mode {
+  background-color: #526D82;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  padding: 0.8rem;
+  margin-left: 200px;
+  margin-right: 200px;
+  border-radius: 0.5rem;
+}
+
+.mode div {
+  list-style: none;
+  display: flex;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.mode div a {
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+
+.mode div a:hover {
+  color: #DDE6ED;
+}
+
+.mode div a.active {
+  color: #3FA2F6;
+} 
