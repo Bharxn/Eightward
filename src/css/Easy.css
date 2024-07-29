@@ -1,13 +1,14 @@
 .poem {
   background-color: black;
+  border-radius: 10px;
   margin: 20px;
   padding: 20px;
   font-family: "Chakra Petch", sans-serif;
   font-weight: 500;
   font-style: normal;
   font-size: 25px;
-  margin-left: 300px;
-  margin-right: 300px;
+  margin-left: 150px;
+  margin-right: 150px;
 }
 
 .top {
@@ -40,11 +41,19 @@
 .word {
   margin-left: 10px;
   margin-right: 10px;
+  padding: 5px;
+  border-radius: 10px;
   background-color: rgb(51, 79, 79);
 }
 
-.line {
+.line-green {
   background-color: rgb(1, 231, 154);
+  min-width: 40px;
+  height: 5px;
+}
+
+.line-red {
+  background-color: rgb(238, 77, 77);
   min-width: 40px;
   height: 5px;
 }
@@ -53,4 +62,38 @@
   all: unset;
   text-align: center;
   width: 70px;
+}
+
+.next-stage-button {
+  display: block;
+  background-color: rgb(71, 125, 86);
+  border-radius: 0.5rem;
+  max-width: 100px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.cover {
+  display: flex;
+  justify-content: center;
+}
+
+.loading {
+  width: 500px;
+}
+
+.num-stage {
+  /* border-style: solid; */
+  background-color: rgb(100, 113, 148);
+  padding: 10px;
+  font-size: 20px;
+  margin: 20px;
+}
+
+.start-word {
+  /* border-style: solid; */
+  background-color: rgb(100, 113, 148);
+  padding: 10px;
+  font-size: 20px;
+  margin: 20px;
 }

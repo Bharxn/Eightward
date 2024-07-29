@@ -1,0 +1,45 @@
+.find-match-button {
+  display: flex;
+  background-color: #526D82;
+  justify-content: center;
+  padding: 10px;
+  font-size: 4rem;
+  width: 100rem;
+  cursor: pointer;
+}
+
+.main-content {
+  display: flex;
+  width: 1065px;
+  max-width: 100%;
+  flex-direction: column;
+  margin: 131px 0 0 10px;
+}
+@media (max-width: 991px) {
+  .main-content {
+    margin-top: 40px;
+  }
+}
+.section-title {
+  color: #3AACFF;
+  font: 24px Inter, sans-serif;
+}
+@media (max-width: 991px) {
+  .section-title {
+    max-width: 100%;
+  }
+}
+.section-description {
+  color: #FFFFFF;
+  margin-top: 19px;
+  font: 20px Inter, sans-serif;
+}
+@media (max-width: 991px) {
+  .section-description {
+    max-width: 100%;
+  }
+}
+
+.grid {
+  display: grid;
+}

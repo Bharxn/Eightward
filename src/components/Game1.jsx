@@ -1,30 +1,55 @@
+import { mirrorEasing } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
-import { LevelsBar } from  "./"
 import { flask_web } from "../js/flaskweb";
+import { db, auth } from "./../../firebase/firebase";
 import Loading from "./../assets/Bean.svg";
+import { ref, get, child } from "firebase/database";
 
-function Easy() {
+function Game1({topic_word, prob}) {
   const [poem, setPoem] = useState(null);
   const [poem2, setPoem2] = useState(null);
   const [isGreen ,setIsGreen] = useState(null);
   const [numStage, setNumStage] = useState(1);
   const [buttonAppear, setButtonAppear] = useState(false);
   const [isFetch, setIsFetch] = useState(true);
+  const user = auth.currentUser;
+  const [minutes, setMinutes] = useState(1);
+  const [seconds, setSeconds] = useState(30);
+  const [opponent, setOpponent] = useState('null');
   
   useEffect(() => {
+    if(poem) {
+      const timer = setInterval(() => {
+        if (seconds > 0) {
+          setSeconds(seconds - 1);
+        } else {
+          if (minutes > 0) {
+            setMinutes(minutes - 1);
+            setSeconds(59);
+          } else {
+            clearInterval(timer);
+          }
+        }
+      }, 1000);
+      return () => clearInterval(timer);
+    }
+
     if(isFetch) {
       setIsFetch(false);
       console.log('fetch !!'); 
-      fetch1();
+      fetch_poem_topic();
+      get(child(ref(db), `info/${user.uid}/opponent`)).then((snapshot) => {
+        const data = snapshot.val();
+        console.log(data);
+        setOpponent(data);
+      })
     }
-  }, [isFetch])
+  }, [isFetch, poem, minutes, seconds]);
 
-  const fetch1 = async () => {
-    const respone = await fetch(`${flask_web}/klon`, {
+  const fetch_poem_topic = async () => {
+    const respone = await fetch(`${flask_web}/klon_with_topic/${topic_word}`, {
       headers : {"ngrok-skip-browser-warning": 1}
     });
-    const prob = [Math.floor(Math.random() * 2), Math.floor(Math.random() * 2), Math.floor(Math.random() * 2), Math.floor(Math.random() * 2), Math.floor(Math.random() * 2)];
     const data = await respone.json();
     var is_green_temp = [[0, 0, 0, 0, 0, 0, 0, 0],
                          [1, 1, 1, 1, 1, 1, 1, 1], 
@@ -123,8 +148,6 @@ function Easy() {
             setButtonAppear(true);
             console.log('count : ', count);
             console.log(buttonAppear);
-          }else {
-            setButtonAppear(false);
           }
         });
       });
@@ -139,16 +162,17 @@ function Easy() {
   }
 
   return(
-    <>
-      <LevelsBar/>
-      {numStage > 5 ? (
+    <div className="grid">
+      {numStage > 1 || (minutes === 0 && seconds === 0)? (
         <div> done !! </div>
       ) : (
         <>
-          <div className="num-stage">stage : {numStage} / 5</div>
           {poem !== null ? (
             <>
-              <div className="start-word">topic word : {poem[0]}</div>
+              <div className="start-word"> topic word : {poem[0]}</div>
+              <div className="start-word">countdown time : {minutes} min {seconds} sec</div>
+              <div className="start-word"> opponent :  {opponent} </div>
+              <div className="start-word"> mode :  Fastest </div>
               <div className="poem">
                 <div className="top">
                   <div className="top-left">
@@ -228,12 +252,12 @@ function Easy() {
 
           {buttonAppear === true && (
             <div className="cover">
-              <div className="next-stage-button" onClick={handleClick}> next stage !! </div>
+              <div className="next-stage-button" onClick={handleClick}> submit !! </div>
             </div>
           )}
         </>
       )}
-    </>
+    </div>
   );
 }
-export default Easy;
+export default Game1;

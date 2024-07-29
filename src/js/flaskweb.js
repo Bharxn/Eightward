@@ -1,0 +1,1 @@
+export const flask_web = "https://7bc1-35-227-20-164.ngrok-free.app/";
